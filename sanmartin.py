@@ -85,7 +85,7 @@ class Personajes(object):
             segundoSprite -= 1
             if self.spriteCountSegundo >= len(self.sprites[int(segundoSprite)]):
                 self.spriteCountSegundo = 0
-                
+
             if segundoSprite == 7:
                 spriteRect = self.sprites[int(segundoSprite)][self.spriteCountSegundo].get_rect()
                 screen.blit(pg.transform.flip(self.sprites[int(segundoSprite)][self.spriteCountSegundo], True, False), (1, 200 - spriteRect.height - 3))
@@ -119,7 +119,7 @@ class Script(object):
         self.script = pd.read_csv(scriptLocation, delimiter=";", encoding='unicode_escape')
         self.dfIndex = 0
         self.font = font
-        
+
         self.lineWidth = 3
         self.offset = int(self.lineWidth + self.lineWidth / 2)
 
@@ -217,7 +217,7 @@ class Script(object):
                     self.renderB = True
                     self.renderC = False
                     self.optionReady = False
-                
+
             if not self.renderA and self.renderB and not self.renderC:
                 renderText = self.font.render(self.optionB[self.textIndex], False, (255, 255, 255))
                 screen.blit(renderText, ((5 + self.x + self.offset * 2) + self.textIndexColumn * 18, self.y + (self.offset * 2) + self.textRow * 27))
@@ -242,7 +242,7 @@ class Script(object):
                     self.renderB = False
                     self.renderC = True
                     self.optionReady = False
-                
+
             if not self.renderA and not self.renderB and self.renderC:
                 if self.optionC != "nan":
                     renderText = self.font.render(self.optionC[self.textIndex], False, (255, 255, 255))
@@ -320,7 +320,7 @@ class Game(object):
 
         self.clock = pg.time.Clock()
         return
-        
+
     def update(self):
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -383,7 +383,7 @@ class Game(object):
                         self.screen.fill((0, 0, 0))
                         pg.draw.rect(self.screen, (50, 50, 50), (1, 1, 800, 197))
                         self.script.renderBox(self.screen)
-    
+
         self.script.parseText()
         return
 
@@ -482,7 +482,7 @@ def gameOver(game):
 
     game.screen.fill((0, 0, 0))
     return
-    
+
 def main():
     game = Game(800, 600, "SanMartin1")
     mainMenu(game)
