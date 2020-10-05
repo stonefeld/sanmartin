@@ -5,6 +5,7 @@ import math
 
 pg.init()
 
+
 class Sound(object):
     def __init__(self, location):
         self.sound = pg.mixer.Sound(location)
